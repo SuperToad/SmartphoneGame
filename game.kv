@@ -1,13 +1,11 @@
 #:kivy 1.0.9
 
 <WorldMap>:
-
     canvas:
 		Rectangle:
             source: 'images/grass.png'
             size: root.size
-
 <Castle>:
-	Image:
-		source: self.source
+	Widget:
+		size: (50, 50)
 		pos: (self.x, self.y)

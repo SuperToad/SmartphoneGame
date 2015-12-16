@@ -10,15 +10,20 @@ class Castle(Image):
 	y = NumericProperty(0)
 	ressources = NumericProperty(0)
 	
-	def __init__(self, test = (0, 0), image = "images/castle.png", **kwargs):
+	def __init__(self, pos = (0, 0), image = "images/castle.png", **kwargs):
 		self.source = image
 		super(Castle, self).__init__(**kwargs)
 		self.size = (50, 50)
-		self.x = test[0]
-		self.y = test[1]
-		print ("New Castle", test)
+		self.x = pos[0]
+		self.y = pos[1]
+		print ("New Castle", pos)
 	
 	def increment_ressources(self, dt):
 		self.ressources = self.ressources + 1
-		print ("Ressources : ", self.ressources)
-	
+		#print ("Ressources : ", self.ressources)
+
+	def on_touch_down(self, touch):
+		# For some reason, each time we touch the screen, ALL of the castles get this called
+		# For now, we'll verify each time if each castle is touched
+		if  self.x < touch.x < self.x + 25 and self.y < touch.y < self.y + 25:
+			print ("Current ressources : ", self.ressources)
