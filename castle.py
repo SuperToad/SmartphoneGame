@@ -25,5 +25,5 @@ class Castle(Image):
 	def on_touch_down(self, touch):
 		# For some reason, each time we touch the screen, ALL of the castles get this called
 		# For now, we'll verify each time if each castle is touched
-		if  self.x < touch.x < self.x + 25 and self.y < touch.y < self.y + 25:
+		if  self.x < touch.x < self.x + 50 and self.y < touch.y < self.y + 50:
 			print ("Current ressources : ", self.ressources)

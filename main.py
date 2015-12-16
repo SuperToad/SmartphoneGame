@@ -42,6 +42,13 @@ class WorldMap(Widget):
 			Clock.schedule_interval(newCastle.increment_ressources, 1.0)
 		else:
 			print ("Place taken")
+	
+	# Failed attempt to "move" the screen
+	# Maybe we need to create a canvas or something and then move it
+	def on_touch_move(self, move):
+		self.pos = move.pos
+		print (move.pos)
+		
 
 # App class
 class GameApp(App):
