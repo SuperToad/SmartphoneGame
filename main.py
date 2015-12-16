@@ -10,23 +10,18 @@ from kivy.uix.label import Label
 from castle import Castle
 
 class WorldMap(Widget):
-	ressources = NumericProperty(0)
 	
-	def increment_ressources(self, dt):
-		self.ressources = self.ressources + 1
 	def on_touch_up(self, touch):
-		test = (touch.x, touch.y)
-		print ("Touched", test)
-		newShip = Castle(test)
+		coord = (touch.x, touch.y)
+		print ("Touched", coord)
+		newCastle = Castle(coord)
+		Clock.schedule_interval(newCastle.increment_ressources, 1.0)
 
 
 class GameApp(App):
 	
-	texture = ObjectProperty()
-	
 	def build(self):
 		map = WorldMap()
-		Clock.schedule_interval(map.increment_ressources, 1.0)
 		return map
 
 

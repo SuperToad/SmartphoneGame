@@ -6,14 +6,8 @@
 		Rectangle:
             source: 'images/grass.png'
             size: root.size
-	Label:
-        font_size: 30  
-        center_x: root.width / 2
-        top: root.top - 5
-        text: str(root.ressources)
-		
+
 <Castle>:
-	canvas:
-		Rectangle:
-            size: root.size
-			pos: (self.x, self.y)
+	Image:
+		source: self.source
+		pos: (self.x, self.y)
