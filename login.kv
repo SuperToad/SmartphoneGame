@@ -1,16 +1,51 @@
-<login>
-	f_username: username
-	f_password: password
+<Widget>:
+    canvas.after:
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+            dash_offset: 5
+            dash_length: 3
+
+<GridLayout>:
+    canvas.after:
+        Color:
+            rgb: 1,0,0
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+        Color:
+            rgb: 1,1,1
+
+<Login>:
+	status:result
 	GridLayout:
-		rows: 2
-		cols: 2
+		orientation: 'vertical'
+		rows: 4
+		cols: 1
 		padding: 10
 		spacing: 10
+
 		Label:
-			text: 'User Name:'
-		TextInput:
-			id:username
-		Label:
-			text: 'Password: '
-		TextInput:
-			id: password
+			text:""
+			id:result
+			font_size: 70
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: "Utilisateur:"
+				font_size: 70
+			TextInput:
+				id:username
+				multiline:False
+				font_size: 70
+		BoxLayout:
+			orientation:"horizontal"
+			Label:
+				text: "Mot de passe: "
+				font_size: 70
+			TextInput:
+				multiline:False
+				id: password
+				font_size: 70
+		Button:
+			text:"Authentification"
+			on_press:root.validate(username.text, password.text)
+			font_size: 70

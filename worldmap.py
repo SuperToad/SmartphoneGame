@@ -2,8 +2,11 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.properties import NumericProperty, ReferenceListProperty,\
     ObjectProperty, ListProperty, BooleanProperty, StringProperty
+from kivy.lang import Builder 
 
 import castle
+
+Builder.load_file('worldmap.kv')
 
 class WorldMap(Widget):
 	# List of the castles in the map
