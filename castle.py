@@ -11,6 +11,8 @@ import castleinfo
 class Castle(Image):
 	x = NumericProperty(0)
 	y = NumericProperty(0)
+	
+	level = NumericProperty(1)
 	ressources = NumericProperty(0)
 	
 	def __init__(self, pos = (0, 0), image = "images/castle.png", **kwargs):
@@ -24,7 +26,14 @@ class Castle(Image):
 	def increment_ressources(self, dt):
 		self.ressources = self.ressources + 1
 		#print ("Ressources : ", self.ressources)
-
+	
+	# Level up
+	# param is useless but for some reason we need two parameters
+	def level_up(self, param):
+		if self.ressources >= 5*self.level:
+			self.ressources = self.ressources - 5*self.level
+			self.level = self.level + 1
+	
 	def on_touch_down(self, touch):
 		# For some reason, each time we touch the screen, ALL of the castles get this called
 		# For now, we'll verify each time if each castle is touched

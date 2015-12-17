@@ -16,11 +16,29 @@
 	pos: self.pos
 	
 	box_layout: box_layout
+	levelup_button: levelup_button
 	close_button: close_button
 	
 	BoxLayout:
 		id: box_layout
 		orientation: 'vertical'
+		
+		BoxLayout:
+			orientation: 'horizontal'
+			Label:
+				height: 150
+				font_size: 15
+				text_size: (self.width - 20, None)
+				text: "Level : "
+			Label:
+				font_size: 15
+				text: str(root.castle.level)
+			Button:
+				id: levelup_button
+				text: "Level Up"
+				pos: box_layout.pos
+				size_hint: (0.8, 0.8)
+				size: (box_layout.width, box_layout.height)
 		BoxLayout:
 			orientation: 'horizontal'
 			Label:
