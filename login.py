@@ -17,4 +17,4 @@ class Login(BoxLayout):
 			w = worldmap.WorldMap()
 			self.add_widget(w)
 		else:
-			self.status.text="User name ou password incorrect !"
+			self.status.text="Nom d'utilisateur ou mot de passe incorrect !"
