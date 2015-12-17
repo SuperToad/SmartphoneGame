@@ -3,6 +3,7 @@ from kivy.properties import NumericProperty, ReferenceListProperty,\
     ObjectProperty, ListProperty, BooleanProperty, StringProperty
 from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.core.window import Window
 
 class CastleInfo(Popup):
 	castle = ObjectProperty()
