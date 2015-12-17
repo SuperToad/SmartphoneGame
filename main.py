@@ -7,8 +7,8 @@ from kivy.clock import Clock
 from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.button import Button
-
 from kivy.uix.popup import Popup
+
 from kivy.uix.progressbar import ProgressBar
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
@@ -17,7 +17,7 @@ from kivy.animation import Animation
 from kivy.graphics.vertex_instructions import *
 from kivy.uix.boxlayout import BoxLayout
 
-from castle import Castle
+from castle import Castle, CastleInfo
 
 # Widget class
 class WorldMap(Widget):

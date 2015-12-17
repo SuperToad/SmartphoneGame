@@ -7,5 +7,37 @@
             size: root.size
 <Castle>:
 	Widget:
-		size: (50, 50)
+		size: (100, 100)
 		pos: (self.x, self.y)
+
+<CastleInfo>:
+	title: "Castle Information"
+	auto_dismiss: True
+	size_hint: (0.8, 0.6)
+	pos: self.pos
+	
+	box_layout: box_layout
+	close_button: close_button
+	
+	BoxLayout:
+		id: box_layout
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			Label:
+				pos: (root.x + 5, root.y - 70)
+				height: 150
+				font_size: 15
+				text_size: (self.width - 20, None)
+				text: "Available ressources : "
+			Label:
+				font_size: 15
+				pos: (root.x + 5, root.y - 70)
+				text: str(root.castle.ressources)
+
+		Button:
+			id: closeButton
+			text: "Close"
+			pos: box_layout.pos
+			size_hint: (None, None)
+			size: (box_layout.width, 30)
