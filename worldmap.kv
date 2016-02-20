@@ -25,14 +25,31 @@
 		
 		BoxLayout:
 			orientation: 'horizontal'
-			Label:
-				height: 150
-				font_size: 15
-				text_size: (self.width - 20, None)
-				text: "Level : "
-			Label:
-				font_size: 15
-				text: str(root.castle.level)
+
+			BoxLayout:
+				orientation: 'vertical'
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						height: 150
+						font_size: 15
+						text_size: (self.width - 20, None)
+						text: "Level : "
+					Label:
+						font_size: 15
+						text: str(root.castle.level)
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						height: 150
+						font_size: 15
+						text_size: (self.width - 20, None)
+						text: "To Upgrade : "
+					Label:
+						font_size: 15
+						text: str(root.castle.level * 5)
+
 			Button:
 				id: levelup_button
 				text: "Level Up"

@@ -14,6 +14,7 @@ class CastleInfo(Popup):
 		self.levelup_button = Button()
 		self.close_button = Button()
 		super(CastleInfo, self).__init__()
+		self.levelup_button.disabled = self.castle.on_upgrade
 		self.levelup_button.bind(on_press = self.castle.level_up)
 		print ("Binded button")
 		self.close_button.bind(on_press = self.dismiss)

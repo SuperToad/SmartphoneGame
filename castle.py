@@ -5,6 +5,9 @@ from kivy.properties import NumericProperty, ReferenceListProperty,\
 from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.clock import Clock
+from functools import partial
+
 
 import castleinfo
 
@@ -14,6 +17,7 @@ class Castle(Image):
 	
 	level = NumericProperty(1)
 	ressources = NumericProperty(0)
+	on_upgrade = BooleanProperty(False)
 	
 	def __init__(self, pos = (0, 0), image = "images/castle.png", **kwargs):
 		self.source = image
@@ -29,11 +33,19 @@ class Castle(Image):
 	
 	# Level up
 	# param is useless but for some reason we need two parameters
+	# (param = the button who called the function)
 	def level_up(self, param):
-		if self.ressources >= 5*self.level:
+		if self.ressources >= 5*self.level and self.on_upgrade == False:
+			param.disabled = True
+			self.on_upgrade = True
 			self.ressources = self.ressources - 5*self.level
-			self.level = self.level + 1
-	
+			Clock.schedule_once(partial(self.do_up, param), 3.0 * self.level)
+			
+	def do_up(self, control, dt):
+		self.level = self.level + 1
+		self.on_upgrade = False
+		control.disabled = False
+
 	def on_touch_down(self, touch):
 		# For some reason, each time we touch the screen, ALL of the castles get this called
 		# For now, we'll verify each time if each castle is touched
