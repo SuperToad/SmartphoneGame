@@ -6,6 +6,7 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty, StringProperty 
 
 import worldmap
+import inCastle 
 
 Builder.load_file('login.kv')
 
@@ -15,6 +16,10 @@ class Login(BoxLayout):
 		if username == "test" and password == "test":
 			self.clear_widgets()
 			w = worldmap.WorldMap()
+			self.add_widget(w)
+		elif username == "user" and password == "user":
+			self.clear_widgets()
+			w = inCastle.InCastle()
 			self.add_widget(w)
 		else:
 			self.status.text="Nom d'utilisateur ou mot de passe incorrect !"

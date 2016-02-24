@@ -1,0 +1,66 @@
+#:kivy 1.0.9
+<Inside_castle>:
+    canvas:
+		Rectangle:
+            source: 'images/inside.jpg'
+            size: root.size
+	
+	size_hint: (1.0, 1.0)
+	box_layout: box_layout
+	levelup_button: levelup_button
+	close_button: close_button
+	
+	BoxLayout:
+		id: box_layout
+		orientation: 'vertical'
+		
+		BoxLayout:
+			orientation: 'horizontal'
+
+			BoxLayout:
+				orientation: 'vertical'
+
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						height: 150
+						font_size: 15
+						text_size: (self.width - 20, None)
+						text: "Level : "
+					Label:
+						font_size: 15
+						text: "Ur mum"
+				BoxLayout:
+					orientation: 'horizontal'
+					Label:
+						height: 150
+						font_size: 15
+						text_size: (self.width - 20, None)
+						text: "To Upgrade : "
+					Label:
+						font_size: 15
+						text: "Infinity"
+
+			Button:
+				id: levelup_button
+				text: "Level Up"
+				pos: box_layout.pos
+				size_hint: (0.8, 0.8)
+				size: (box_layout.width, box_layout.height)
+		BoxLayout:
+			orientation: 'horizontal'
+			Label:
+				height: 150
+				font_size: 15
+				text_size: (self.width - 20, None)
+				text: "Available ressources : "
+			Label:
+				font_size: 15
+				text: "kek"
+
+		Button:
+			id: close_button
+			text: "Close"
+			pos: box_layout.pos
+			size_hint: (None, None)
+			size: (box_layout.width, 30)
