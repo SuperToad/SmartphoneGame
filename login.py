@@ -22,4 +22,4 @@ class Login(BoxLayout):
 			w = inCastle.InCastle()
 			self.add_widget(w)
 		else:
-			self.status.text="Nom d'utilisateur ou mot de passe incorrect !"
+			self.status.text="Nom d'utilisateur ou mot de passe incsorrect !"

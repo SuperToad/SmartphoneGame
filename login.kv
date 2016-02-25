@@ -10,27 +10,27 @@
 		Label:
 			text:""
 			id:result
-			font_size: 70
+			font_size: 20
 		BoxLayout:
 			orientation:"horizontal"
 			Label:
 				text: "Utilisateur:"
-				font_size: 70
+				font_size: 20
 			TextInput:
 				id:username
 				multiline:False
-				font_size: 70
+				font_size: 20
 		BoxLayout:
 			orientation:"horizontal"
 			Label:
 				text: "Mot de passe: "
-				font_size: 70
+				font_size: 20
 			TextInput:
 				multiline:False
 				id: password
-				font_size: 70
+				font_size: 20
 				password: True
 		Button:
 			text:"Authentification"
 			on_press:root.validate(username.text, password.text)
-			font_size: 70
+			font_size: 20
