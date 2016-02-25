@@ -1,29 +1,45 @@
 <InCastle>:
-    boisLabel: boislabel
-    ferLabel: ferlabel
-    nourritureLabel: nourriturelabel
+	boisLabel: boislabel
+	ferLabel: ferlabel
+	nourritureLabel: nourriturelabel
     canvas:
-        Rectangle:
-            source: 'images/inside.jpg'
+		Rectangle:
+            source: 'images/grass.png'
             size: root.size
     Button:
-        text:"Construction"
-        font_size: 20
-        height: root.height/5
-        width: root.width/5
-        on_press: root.ouvrirMenuConstruction()
-    Label:
-        text:str(root.cc.bois)
-        font_size: 20
-        id: boislabel
-        pos: (0, 100)
-    Label:
-        text:str(root.cc.fer)
-        font_size: 20
-        id: ferlabel
-        pos: (0, 200)
-    Label:
-        text:str(root.cc.nourriture)
-        font_size:20
-        id: nourriturelabel
-        pos: (0, 300)
+		text:"Construction"
+		font_size: 20
+		height: root.height/5
+		width: root.width/5
+		on_press: root.ouvrirMenuConstruction()
+
+	Label:
+		text:"Bois :"
+		font_size: 20
+		id: boistext
+		pos: (0, 100)
+	Label: 
+		text:str(root.cc.bois)
+		font_size: 20
+		id: boislabel
+		pos: (100, 100)
+	Label:
+		text:"Fer :"
+		font_size: 20
+		id: fertext
+		pos: (0, 200)
+	Label:
+		text:str(root.cc.fer)
+		font_size: 20
+		id: ferlabel
+		pos: (100, 200)
+	Label:
+		text:"Nourriture :"
+		font_size: 20
+		id: nourrituretext
+		pos: (0, 300)
+	Label:
+		text:str(root.cc.nourriture)
+		font_size:20
+		id: nourriturelabel
+		pos: (100, 300)
