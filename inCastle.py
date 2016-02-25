@@ -14,10 +14,10 @@ class InCastle(Widget) :
     boisLabel = ObjectProperty()
     ferLabel = ObjectProperty()
     nourritureLabel = ObjectProperty()
+    cc = ObjectProperty(statsCastle.StatsCastle())
  
     def __init__(self):
         super(InCastle, self).__init__()
-        self.cc = statsCastle.StatsCastle()
         Clock.schedule_interval(self.increment_bois, 1.0)
         Clock.schedule_interval(self.increment_fer, 1.0)
         Clock.schedule_interval(self.increment_nourriture, 1.0)
@@ -30,7 +30,7 @@ class InCastle(Widget) :
         #self.boisLabel.text = self.cc.bois
  
     def increment_fer(self, dt):
-        self.cc.fer = self.cc.fer + self.cc.gain_bois
+        self.cc.fer = self.cc.fer + self.cc.gain_fer
         #self.ferLabel.text = self.cc.fer
  
     def increment_nourriture(self, dt):
