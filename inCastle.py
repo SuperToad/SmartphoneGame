@@ -23,6 +23,7 @@ class InCastle(Widget) :
 	cc = ObjectProperty(statsCastle.StatsCastle())
 	batiment_list = ListProperty([])
 	batimentActuel = "nope"
+	fenetre = Popup(title="Construction")
 
 	def __init__(self):
 		super(InCastle, self).__init__()
@@ -33,29 +34,29 @@ class InCastle(Widget) :
 		self.placementBatiment = ObjectProperty()
 
 	def ouvrirMenuConstruction(self):
-		print("fonctio OuvrirMenuConstruction")
+		print("fonction OuvrirMenuConstruction")
 		box = BoxLayout(orientation='vertical')
 		grid = GridLayout(cols=3, row_default_height=40)
 		fermer = Button(text="Fermer", font_size=20)
 		scierie = Button(text="scierie")
 		mine = Button(text="mine")
 		ferme = Button(text="ferme")
-		fenetre = Popup(title="Construction")
+		self.fenetre = Popup(title="Construction")
 		grid.add_widget(scierie)
 		grid.add_widget(mine)
 		grid.add_widget(ferme)
 		box.add_widget(grid)
 		box.add_widget(fermer)
-		fenetre.add_widget(box)
+		self.fenetre.add_widget(box)
 		fermer.size_hint=(1,.1)
-		fermer.bind(on_press=fenetre.dismiss)
+		fermer.bind(on_press= self.fenetre.dismiss)
 		scierie.bind(on_press=lambda x:self.construire("scierie"))
 		mine.bind(on_press=lambda x:self.construire("mine"))
 		ferme.bind(on_press=lambda a:self.construire("ferme"))
-		scierie.bind(on_press=fenetre.dismiss)
-		mine.bind(on_press=fenetre.dismiss)
-		ferme.bind(on_press=fenetre.dismiss)
-		fenetre.open()
+		# scierie.bind(on_press=fenetre.dismiss)
+		# mine.bind(on_press=fenetre.dismiss)
+		# ferme.bind(on_press=fenetre.dismiss)
+		self.fenetre.open()
 
 	def increment_bois(self, dt):
 		self.cc.bois = self.cc.bois + self.cc.gain_bois
@@ -80,4 +81,5 @@ class InCastle(Widget) :
 			self.cc.gain_fer = self.cc.gain_fer + 1
 		elif typeBatiment == "ferme":
 			self.cc.gain_nourriture = self.cc.gain_nourriture + 1
+		self.fenetre.dismiss()
 		

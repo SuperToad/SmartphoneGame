@@ -7,9 +7,10 @@ import batiment
 class PlacementBatiment(Widget):
 	def __init__(self, _castle):
 		self.castle = _castle
-		print("hfusg")
+		print("PlacementBatiment init")
 
 	def on_touch_down(self, pos):
+		print("PlacementBatiment on_touch_down")
 		coord = (touch.x -25, touch.y -25)
 		# Determine if the place is already taken
 		place = True
@@ -17,6 +18,7 @@ class PlacementBatiment(Widget):
 			if  c.x - 25 < touch.x < c.x + 75 and c.y - 25 < touch.y < c.y + 75:
 				place = False
 		if place:
+			print("New batiment")
 			batiment = batiment.Batiment(coord, castle.batimentActuel)
 			castle.batiment_list.append(batiment)
 			castle.add_widget(batiment)
