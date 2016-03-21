@@ -1,15 +1,19 @@
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty,\
     ObjectProperty, ListProperty, BooleanProperty, StringProperty
+from kivy.lang import Builder 
 
 import inCastle
 import batiment
+
+Builder.load_file('worldmap.kv')
+
 class PlacementBatiment(Widget):
 	def __init__(self, _castle):
 		self.castle = _castle
 		print("PlacementBatiment init")
 
-	def on_touch_down(self, pos):
+	def on_touch_up(self, touch):
 		print("PlacementBatiment on_touch_down")
 		coord = (touch.x -25, touch.y -25)
 		# Determine if the place is already taken

@@ -73,3 +73,82 @@
 			pos: box_layout.pos
 			size_hint: (None, None)
 			size: (box_layout.width, 30)
+
+<InCastle>:
+	boisLabel: boislabel
+	ferLabel: ferlabel
+	nourritureLabel: nourriturelabel
+    canvas:
+		Rectangle:
+            source: 'images/inside.jpg'
+            size: root.size
+			
+    Button:
+		text:"Construction"
+		font_size: 20
+		height: root.height/5
+		width: root.width/5
+		on_press: root.ouvrirMenuConstruction()
+
+	Label:
+		text:"Bois :"
+		font_size: 20
+		id: boistext
+		pos: (0, 100)
+	Label: 
+		text:str(root.cc.bois)
+		font_size: 20
+		id: boislabel
+		pos: (100, 100)
+	Label:
+		text:"Fer :"
+		font_size: 20
+		id: fertext
+		pos: (0, 200)
+	Label:
+		text:str(root.cc.fer)
+		font_size: 20
+		id: ferlabel
+		pos: (100, 200)
+	Label:
+		text:"Nourriture :"
+		font_size: 20
+		id: nourrituretext
+		pos: (0, 300)
+	Label:
+		text:str(root.cc.nourriture)
+		font_size:20
+		id: nourriturelabel
+		pos: (100, 300)
+		
+	Carousel: 
+		id: carousel
+		loop: True
+		height: root.height/2
+		width: root.width/2
+		pos: (root.width/2, root.height/2)
+		
+		canvas:
+			Color:
+				rgb: (.6, .6, .6, 1)
+			Rectangle:
+				pos: self.x, self.y
+				size: self.width, self.height
+				
+		Image:
+	    	source: 'images/ferme.png'
+	    	size: root.size
+            
+		Image:
+            source: 'images/mine.png'
+            size: root.size
+			
+		Image:
+            source: 'images/scierie.png'
+            size: root.size
+	
+		
+<PlacementBatiment>:
+	canvas:
+		Rectangle: 
+			size: root.size
