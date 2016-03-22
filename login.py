@@ -7,6 +7,7 @@ from kivy.properties import ObjectProperty, StringProperty
 
 import worldmap
 import inCastle 
+import new
 
 Builder.load_file('login.kv')
 
@@ -22,4 +23,9 @@ class Login(BoxLayout):
 			w = inCastle.InCastle()
 			self.add_widget(w)
 		else:
-			self.status.text="Nom d'utilisateur ou mot de passe incsorrect !"
+			self.status.text="Nom d'utilisateur ou mot de passe incorrect !"
+			
+	def inscription(self):
+		self.clear_widgets()
+		n = new.New()
+		self.add_widget(n)

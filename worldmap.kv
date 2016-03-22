@@ -138,14 +138,38 @@
 		Image:
 	    	source: 'images/ferme.png'
 	    	size: root.size
+	    	
+	    	Label:
+	    		text: "Fermes :"
+	    		pos: (0, 0)
+	    	
+	    	Label:
+	    		text: str(root.nbFermes)
+	    		pos: (40, 0)
             
 		Image:
             source: 'images/mine.png'
             size: root.size
+            
+            Label:
+	    		text: "Mines :"
+	    		pos: (0, 0)
+	    	
+	    	Label:
+	    		text: str(root.nbMines)
+	    		pos: (40, 0)
 			
 		Image:
             source: 'images/scierie.png'
             size: root.size
+            
+            Label:
+	    		text: "Scieries :"
+	    		pos: (0, 0)
+	    	
+	    	Label:
+	    		text: str(root.nbScieries)
+	    		pos: (40, 0)
 	
 		
 <PlacementBatiment>:
