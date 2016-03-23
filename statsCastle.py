@@ -2,6 +2,9 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.properties import NumericProperty, ReferenceListProperty,\
     ObjectProperty, ListProperty, BooleanProperty, StringProperty
+from kivy.storage.jsonstore import JsonStore
+    
+store = JsonStore('users.json')
 
 class StatsCastle(Widget):
 	bois = NumericProperty(0)

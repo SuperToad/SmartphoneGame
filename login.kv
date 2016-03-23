@@ -35,21 +35,24 @@
 		Button:
 			text:"Authentification"
 			on_press:root.validate(username.text, password.text)
+			size_hint: (1,.3)
 			font_size: 20
 			
 		Button:
 			text:"Nouvel Utilisateur"
+			on_press:root.nouveau()
+			size_hint: (1,.3)
 			font_size: 20
 			
-<New>:
-	status:result
+<NewUser>:
+	status: result
 	GridLayout:
 		orientation: 'vertical'
 		rows: 6
 		cols: 1
 		padding: 10
 		spacing: 10
-		
+
 		Label:
 			text:""
 			id:result
@@ -57,7 +60,7 @@
 		BoxLayout:
 			orientation:"horizontal"
 			Label:
-				text: "Utilisateur:"
+				text: "Nom d'utilisateur :"
 				font_size: 20
 			TextInput:
 				id:username
@@ -67,7 +70,7 @@
 		BoxLayout:
 			orientation:"horizontal"
 			Label:
-				text: "Mot de passe: "
+				text: "Mot de passe : "
 				font_size: 20
 			TextInput:
 				multiline:False
@@ -75,15 +78,14 @@
 				font_size: 20
 				size_hint: (0.9, 0.4)
 				password: True
-				
 		BoxLayout:
 			orientation:"horizontal"
 			Label:
-				text: "Confirmation du mot de passe: "
+				text: "Confirmer mot de passe : "
 				font_size: 20
 			TextInput:
 				multiline:False
-				id: passwordConfirm 
+				id: passwordConfirm
 				font_size: 20
 				size_hint: (0.9, 0.4)
 				password: True
@@ -91,9 +93,12 @@
 		Button:
 			text:"Envoyer"
 			on_press:root.validate(username.text, password.text, passwordConfirm.text)
+			size_hint: (1,.3)
 			font_size: 20
 			
 		Button:
 			text:"Retour"
+			on_press:root.retour()
+			size_hint: (1,.3)
 			font_size: 20
-	
+

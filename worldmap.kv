@@ -96,7 +96,7 @@
 		id: boistext
 		pos: (0, 100)
 	Label: 
-		text:str(root.cc.bois)
+		text:str(root.bois)
 		font_size: 20
 		id: boislabel
 		pos: (100, 100)
@@ -106,7 +106,7 @@
 		id: fertext
 		pos: (0, 200)
 	Label:
-		text:str(root.cc.fer)
+		text:str(root.fer)
 		font_size: 20
 		id: ferlabel
 		pos: (100, 200)
@@ -116,7 +116,7 @@
 		id: nourrituretext
 		pos: (0, 300)
 	Label:
-		text:str(root.cc.nourriture)
+		text:str(root.nourriture)
 		font_size:20
 		id: nourriturelabel
 		pos: (100, 300)
@@ -135,41 +135,65 @@
 				pos: self.x, self.y
 				size: self.width, self.height
 				
-		Image:
-	    	source: 'images/ferme.png'
-	    	size: root.size
+		BoxLayout:
+			orientation:"vertical"	
+			Image:
+	    		source: 'images/ferme.png'
+	    		size: root.size
 	    	
 	    	Label:
-	    		text: "Fermes :"
-	    		pos: (0, 0)
+	    		text: "Fermes : " + str(root.nbFermes)
 	    	
-	    	Label:
-	    		text: str(root.nbFermes)
-	    		pos: (40, 0)
-            
-		Image:
-            source: 'images/mine.png'
-            size: root.size
-            
-            Label:
-	    		text: "Mines :"
-	    		pos: (0, 0)
-	    	
-	    	Label:
-	    		text: str(root.nbMines)
-	    		pos: (40, 0)
-			
-		Image:
-            source: 'images/scierie.png'
-            size: root.size
+        BoxLayout:
+			orientation:"vertical"	
+			Image:
+		        source: 'images/mine.png'
+		        size: root.size
             
             Label:
-	    		text: "Scieries :"
-	    		pos: (0, 0)
+	    		text: "Mines : " + str(root.nbMines)
 	    	
-	    	Label:
-	    		text: str(root.nbScieries)
-	    		pos: (40, 0)
+		BoxLayout:
+			orientation:"vertical"		
+			Image:
+		        source: 'images/scierie.png'
+		        size: root.size
+            
+            Label:
+	    		text: "Scieries : " + str(root.nbScieries)
+	    	
+	    BoxLayout:
+			orientation:"vertical"			
+			Image:
+		        source: 'images/caserne.png'
+		        size: root.size
+            
+            Label:
+	    		text: "Casernes : " + str(root.nbCasernes)
+	    	
+	    	
+	    	Button: 
+	    		text: "Former soldat(10 Nourriture)"
+	    		pos: (300, 0)
+	    		on_press:root.formerSoldat()
+	    		
+	Image:
+		source: 'images/chevalier.png'
+		pos: (root.width-500, 0)
+		
+	Label:
+		text: str(root.nbSoldats) + " / " + str(root.nbSoldatsMax)
+		pos: (root.width-325, 0)
+		font_size: 100
+		
+	Button: 
+		font_size: 20
+		text:"Attaquer"
+		pos:(0, root.height-100)
+		height: root.height/5
+		width: root.width/5
+		on_press: root.ouvrirMenuAttaque()
+		
 	
 		
 <PlacementBatiment>:
